@@ -11,10 +11,11 @@ galaxy_info:
     - 7
   categories:
   - clustering
+  - database
   - database:nosql
   - development
   - system
   - web
 dependencies:
   - { role: geerlingguy.java, java_packages: java-1.8.0-openjdk }
-  - { role: euforia.ansible-elasticsearch }
+  - { role: euforia.elasticsearch }
