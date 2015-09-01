@@ -1,0 +1,43 @@
+{ 
+    "datastore": {
+        "type": "elasticsearch",
+        "config": {
+            "host": "{{vd_ess_host}}",
+            "port": {{vd_ess_port}},
+            "index": "{{vd_ess_index}}",
+            "mapping_file": "/opt/vindaloo/etc/mapping.json"
+        }
+    },
+    "asset": {
+        "required_fields": ["status","environment"],
+        "enforced_fields": {
+            "status": ["enabled", "disabled"],
+            "environment": ["production", "development", "testing", "lab"]
+        }
+    },
+    "default_result_size": 1000000,
+    "webroot": "/opt/vindaloo/ui",
+    "events": {
+        "enabled": true,
+        "config_file": "/opt/vindaloo/etc/gnatsd.conf"
+    },
+    "endpoints":{
+        "api_prefix": "{{vd_api_prefix}}",
+        "raw": "raw"
+    },
+    "auth": {
+        "enabled": {{vd_auth_enabled}},
+        "type": "activedirectory",
+        "config": {
+            "url": "{{vd_ldap_url}}",
+            "search_base": "{{vd_search_base}}",
+            "bind_dn": "{{vd_bind_dn}}",
+            "bind_password": "{{vd_bind_password}}"
+        },
+        "caching": { 
+            "ttl": 7200
+        },
+        "groups_file": "/opt/vindaloo/etc/local-groups.json"
+    },
+    "version": "{{vd_version}}"
+}

@@ -1,0 +1,2 @@
+- name: setup startup
+  service: name=vindaloo state=started enabled=yes

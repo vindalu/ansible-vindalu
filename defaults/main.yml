@@ -1,0 +1,14 @@
+vd_ess_host: localhost
+vd_ess_port: 9200
+vd_ess_index: inventory
+
+vd_api_prefix: "/v3"
+
+vd_auth_enabled: "false"
+vd_ldap_url: ""
+vd_search_base: ""
+vd_bind_dn: ""
+vd_bind_password: file:///opt/vindaloo/etc/bind.password
+
+# This should not be over written
+vd_version: "0.3.0"
