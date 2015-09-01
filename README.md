@@ -17,7 +17,7 @@ Dependencies
 ------------
 
 - geerlingguy.java
-- aloysius.elasticsearch
+- euforia.elasticsearch
 
 Example Playbook
 ----------------
