@@ -14,7 +14,7 @@ vd_auth_enabled: "false"
 vd_ldap_url: ""
 vd_search_base: ""
 vd_bind_dn: ""
-vd_bind_password: file:///opt/vindaloo/etc/bind.password
+vd_bind_password: file:///opt/vindaloo/etc/bind.passwd
 
 # This should not be over written
 vd_version: "0.3.0"

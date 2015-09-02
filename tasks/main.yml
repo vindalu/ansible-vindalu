@@ -1,13 +1,16 @@
 ---
-- name: install gpg tools 
+- name: Install GPG tools 
   yum: pkg=pygpgme state=latest
 
-- name: install repo 
+- name: Add packagecloud Vindaloo repo public signing key
+  rpm_key: key=https://packagecloud.io/gpg.key state=present
+
+- name: Install Vindaloo repo
   template: src=vindaloo.repo.j2 dest=/etc/yum.repos.d/vindaloo.repo
 
-- name: install package
+- name: Install Vindaloo
   yum: pkg=vindaloo state=latest
 
-- name: configure package
+- name: Configure Vindaloo
   template: src=vindaloo.json.j2 dest=/opt/vindaloo/etc/vindaloo.json
 
