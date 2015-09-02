@@ -15,19 +15,17 @@ The following variables are available:
     - vd_ess_hos
     - vd_ess_port
     - vd_ess_index
+
     - vd_api_prefix
+
     - vd_auth_enabled
     - vd_ldap_url
     - vd_search_base
     - vd_bind_dn
     - vd_bind_password
 
-
-The following elasticsearch variables may also need to configured based on your setup.
-
-    - es_etc_cluster_name: "cluster_name"
-    - es_etc_discovery_zen_ping_unicast_hosts: "[\"foo.bar\", \"foo1.bar\"]"
-    - es_etc_discovery_zen_ping_multicast_enabled: "false"
+    - cluster_name
+    - cluster_members
 
 Dependencies
 ------------
