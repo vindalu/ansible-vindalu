@@ -10,8 +10,24 @@ Any pre-requisites that may not be covered by Ansible itself or the role should 
 
 Role Variables
 --------------
+The following variables are available:
 
-A description of the settable variables for this role should go here, including any variables that are in defaults/main.yml, vars/main.yml, and any variables that can/should be set via parameters to the role. Any variables that are read from other roles and/or the global scope (ie. hostvars, group vars, etc.) should be mentioned here as well.
+    - vd_ess_hos
+    - vd_ess_port
+    - vd_ess_index
+    - vd_api_prefix
+    - vd_auth_enabled
+    - vd_ldap_url
+    - vd_search_base
+    - vd_bind_dn
+    - vd_bind_password
+
+
+The following elasticsearch variables may also need to configured based on your setup.
+
+    - es_etc_cluster_name: "cluster_name"
+    - es_etc_discovery_zen_ping_unicast_hosts: "[\"foo.bar\", \"foo1.bar\"]"
+    - es_etc_discovery_zen_ping_multicast_enabled: "false"
 
 Dependencies
 ------------
