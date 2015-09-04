@@ -13,4 +13,8 @@
 
 - name: Configure Vindaloo
   template: src=vindaloo.json.j2 dest=/opt/vindaloo/etc/vindaloo.json
+  notify: Restart vindaloo
 
+- name: Install startup script
+  file: src=/opt/vindaloo/bin/vindaloo-ctl dest=/etc/init.d/vindaloo state=link
+  notify: Start vindaloo

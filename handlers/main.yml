@@ -1,2 +1,5 @@
-- name: setup startup
+- name: Start vindaloo
   service: name=vindaloo state=started enabled=yes
+
+- name: Restart vindaloo
+  service: name=vindaloo state=restarted
