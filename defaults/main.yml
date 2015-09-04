@@ -1,10 +1,13 @@
 cluster_name: "vindaloo"
 cluster_members: "[]"
 
+## ess config
 es_etc_discovery_zen_ping_unicast_hosts: "{{cluster_members}}"
 es_etc_cluster_name: "{{cluster_name}}"
+es_etc_node_name: "{{ansible_fqdn}}"
 
-vd_ess_host: localhost
+## vindaloo configs
+vd_ess_host: "localhost"
 vd_ess_port: 9200
 vd_ess_index: inventory
 
