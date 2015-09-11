@@ -13,11 +13,16 @@ vd_ess_index: inventory
 
 vd_api_prefix: "/v3"
 
-vd_auth_enabled: "false"
 vd_ldap_url: ""
 vd_search_base: ""
 vd_bind_dn: ""
 vd_bind_password: file:///opt/vindaloo/etc/bind.passwd
+vd_auth_cache_ttl: 7200
+
+vd_token_signing_key: "should-be-changed"
+vd_token_ttl: 7200
+
+asset_required_fields: "[\"status\",\"environment\"]"
 
 # This should not be over written
-vd_version: "0.3.1"
+vd_version: "0.4.0"

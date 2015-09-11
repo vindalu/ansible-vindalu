@@ -9,7 +9,7 @@
         }
     },
     "asset": {
-        "required_fields": ["status","environment"],
+        "required_fields": {{asset_required_fields}},
         "enforced_fields": {
             "status": ["enabled", "disabled"],
             "environment": ["production", "development", "testing", "lab"]
@@ -27,18 +27,19 @@
         "events": "events"
     },
     "auth": {
-        "enabled": {{vd_auth_enabled}},
-        "type": "activedirectory",
+        "type": "ldap",
         "config": {
             "url": "{{vd_ldap_url}}",
             "search_base": "{{vd_search_base}}",
             "bind_dn": "{{vd_bind_dn}}",
-            "bind_password": "{{vd_bind_password}}"
+            "bind_password": "{{vd_bind_password}}",
+            "cache_ttl": {{vd_auth_cache_ttl}}
         },
-        "caching": { 
-            "ttl": 7200
-        },
-        "groups_file": "/opt/vindaloo/etc/local-groups.json"
+        "groups_file": "/opt/vindaloo/etc/local-groups.json",
+        "token": {
+            "signing_key": "{{vd_token_signing_key}}",
+            "ttl": {{vd_token_ttl}}
+        }
     },
     "version": "{{vd_version}}"
 }
