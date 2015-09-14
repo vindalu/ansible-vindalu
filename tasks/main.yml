@@ -1,19 +1,13 @@
 ---
-- name: Update all packages
-  yum: name=* state=latest
-  when: ansible_distribution_major_version == "6"
-
-- name: Install GPG tools 
-  yum: pkg=pygpgme state=latest
-
-- name: Add packagecloud Vindaloo repo public signing key
-  rpm_key: key=https://packagecloud.io/gpg.key state=present
-
-- name: Install Vindaloo repo
-  template: src=vindaloo.repo.j2 dest=/etc/yum.repos.d/vindaloo.repo
-
 - name: Install Vindaloo
   yum: pkg=vindaloo state=latest
+
+- name: Disable default nginx config
+  shell: "if [ -f /etc/nginx/conf.d/default.conf ]; then mv /etc/nginx/conf.d/default.conf{,.disabled}; fi"
+  notify: restart nginx
+
+- name: Configure Vindaloo groups
+  shell: "if [ ! -f opt/vindaloo/etc/local-groups.json ]; then cp /opt/vindaloo/etc/local-groups.json{.sample,}; fi"
 
 - name: Configure Vindaloo
   template: src=vindaloo.json.j2 dest=/opt/vindaloo/etc/vindaloo.json
