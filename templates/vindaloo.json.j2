@@ -27,13 +27,14 @@
         "events": "events"
     },
     "auth": {
-        "type": "ldap",
+        "type": "{{vd_auth_type}}",
         "config": {
-            "url": "{{vd_ldap_url}}",
+            {% if vd_auth_type == 'ldap' %}"url": "{{vd_ldap_url}}",
             "search_base": "{{vd_search_base}}",
             "bind_dn": "{{vd_bind_dn}}",
             "bind_password": "{{vd_bind_password}}",
-            "cache_ttl": {{vd_auth_cache_ttl}}
+            "cache_ttl": {{vd_auth_cache_ttl}}{% else %}"htpasswd_file": "{{vd_auth_basic_htpasswd_file}}"
+            {% endif %}
         },
         "groups_file": "/opt/vindaloo/etc/local-groups.json",
         "token": {
