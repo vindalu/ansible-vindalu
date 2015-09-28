@@ -1,4 +1,10 @@
 ---
+- name: Clean repo cache
+  shell: yum clean all
+  
+- name: Install Vindalu UI
+  yum: pkg=vindalu-ui state=latest
+  
 - name: Install Vindaloo
   yum: pkg=vindaloo state=latest
 

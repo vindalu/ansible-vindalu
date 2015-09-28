@@ -27,5 +27,6 @@ vd_token_ttl: 7200
 
 asset_required_fields: "[\"status\",\"environment\"]"
 
+aws_plugin_enabled: "false"
 # This should not be over written
-vd_version: "0.4.0"
+vd_version: "0.4.2"

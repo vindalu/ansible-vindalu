@@ -11,12 +11,11 @@
     "asset": {
         "required_fields": {{asset_required_fields}},
         "enforced_fields": {
-            "status": ["enabled", "disabled"],
-            "environment": ["production", "development", "testing", "lab"]
+            "status": ["enabled", "disabled"]
         }
     },
     "default_result_size": 1000000,
-    "webroot": "/opt/vindaloo/ui",
+    "webroot": "/opt/vindalu-ui/ui",
     "events": {
         "enabled": true,
         "config_file": "/opt/vindaloo/etc/gnatsd.conf"
@@ -40,6 +39,11 @@
         "token": {
             "signing_key": "{{vd_token_signing_key}}",
             "ttl": {{vd_token_ttl}}
+        }
+    },
+    "plugins": {
+        "aws": {
+            "enabled": {{aws_plugin_enabled}}
         }
     },
     "version": "{{vd_version}}"
