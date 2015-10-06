@@ -1,0 +1,3 @@
+{
+    "admin": [{% for idx in range(local_admins|length) %}{%if idx+1 == local_admins|length %}"{{local_admins[idx]}}"{% else %}"{{local_admins[idx]}}",{% endif %}{% endfor %}]
+}

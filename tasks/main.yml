@@ -12,13 +12,14 @@
   shell: "if [ -f /etc/nginx/conf.d/default.conf ]; then mv /etc/nginx/conf.d/default.conf{,.disabled}; fi"
   notify: restart nginx
 
-- name: Configure Vindaloo groups
-  shell: "if [ ! -f opt/vindaloo/etc/local-groups.json ]; then cp /opt/vindaloo/etc/local-groups.json{.sample,}; fi"
-
-- name: Configure Vindaloo
-  template: src=vindaloo.json.j2 dest=/opt/vindaloo/etc/vindaloo.json
-  notify: Restart vindaloo
-
 - name: Install startup script
   file: src=/opt/vindaloo/bin/vindaloo-ctl dest=/etc/init.d/vindaloo state=link
   notify: Start vindaloo
+
+- name: Configure Vindalu
+  template: src=vindaloo.json.j2 dest=/opt/vindaloo/etc/vindaloo.json
+  notify: Restart vindaloo
+  
+- name: Configure Vindalu local admins
+  template: src=local-groups.json.j2 dest=/opt/vindaloo/etc/local-groups.json
+  notify: Restart vindaloo
