@@ -1,5 +1,5 @@
-vindaloo
-========
+ansible-vindalu
+===============
 
 A brief description of the role goes here.
 
@@ -31,7 +31,7 @@ Dependencies
 ------------
 
 - geerlingguy.java
-- euforia.elasticsearch
+- aloysius.elasticsearch
 
 Example Playbook
 ----------------
@@ -40,7 +40,7 @@ Including an example of how to use your role (for instance, with variables passe
 
     - hosts: servers
       roles:
-         - { role: euforia.vindaloo }
+         - { role: ansible-vindalu }
 
 License
 -------

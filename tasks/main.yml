@@ -1,12 +1,13 @@
 ---
-- name: Clean repo cache
-  shell: yum clean all
+#- name: Clean repo cache
+#  shell: yum clean all
   
 - name: Install Vindalu UI
   yum: pkg=vindalu-ui state=latest
   
-- name: Install Vindaloo
+- name: Install Vindalu
   yum: pkg=vindaloo state=latest
+  notify: Restart vindaloo
 
 - name: Disable default nginx config
   shell: "if [ -f /etc/nginx/conf.d/default.conf ]; then mv /etc/nginx/conf.d/default.conf{,.disabled}; fi"

@@ -1,7 +1,7 @@
 ---
 galaxy_info:
   author: euforia
-  description: Vindaloo - resource inventory system
+  description: Vindalu - resource inventory system
   license: license (BSD)
   min_ansible_version: 1.2
   platforms:
@@ -17,4 +17,4 @@ galaxy_info:
   - system
 dependencies:
   - { role: geerlingguy.java, java_packages: java-1.8.0-openjdk }
-  - { role: euforia.elasticsearch }
+  - { role: aloysius.elasticsearch }

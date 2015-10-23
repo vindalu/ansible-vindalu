@@ -31,6 +31,5 @@ vd_token_ttl: 7200
 ## asset constraints
 asset_required_fields: "[\"status\"]"
 
-aws_plugin_enabled: "false"
 # This should not be over written
-vd_version: "0.4.3"
+vd_version: "0.4.5"
