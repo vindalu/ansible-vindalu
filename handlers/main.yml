@@ -1,5 +1,5 @@
 - name: Start vindalu
-  service: name=vindaloo state=started enabled=yes
+  service: name=vindalu state=started enabled=yes
 
 - name: Restart vindalu
-  service: name=vindaloo state=restarted
+  service: name=vindalu state=restarted

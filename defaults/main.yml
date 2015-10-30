@@ -17,12 +17,12 @@ local_admins: ["admin"]
 
 ## vindalu auth
 vd_auth_type: "basic"
-vd_auth_basic_htpasswd_file: "/opt/vindaloo/etc/htpasswd"
+vd_auth_basic_htpasswd_file: "/opt/vindalu/etc/htpasswd"
 
 vd_ldap_url: ""
 vd_search_base: ""
 vd_bind_dn: ""
-vd_bind_password: file:///opt/vindaloo/etc/bind.passwd
+vd_bind_password: file:///opt/vindalu/etc/bind.passwd
 vd_auth_cache_ttl: 7200
 
 vd_token_signing_key: "should-be-changed"
@@ -32,4 +32,4 @@ vd_token_ttl: 7200
 asset_required_fields: "[\"status\"]"
 
 # This should not be over written
-vd_version: "0.4.5"
+vd_version: "0.5.0"
