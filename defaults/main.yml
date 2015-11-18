@@ -6,6 +6,12 @@ es_etc_discovery_zen_ping_unicast_hosts: "{{cluster_members}}"
 es_etc_cluster_name: "{{cluster_name}}"
 es_etc_node_name: "{{ansible_fqdn}}"
 
+es_etc:
+  action.destructive_requires_name: "true"
+  action.disable_delete_all_indices: "true"
+  # prevent ipv6 binding
+  network.bind_host: "0.0.0.0"
+
 ## vindaloo configs
 vd_ess_host: "localhost"
 vd_ess_port: 9200
@@ -32,4 +38,4 @@ vd_token_ttl: 7200
 asset_required_fields: "[\"status\"]"
 
 # This should not be over written
-vd_version: "0.5.0"
+vd_version: "0.5.1"
