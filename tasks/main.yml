@@ -7,9 +7,10 @@
 
 - name: Install Vindalu UI
   yum: pkg=vindalu-ui state=latest
-  
+
 - name: Install Vindalu
   yum: pkg=vindalu state=latest
+  notify: Restart vindalu
 
 - name: Remove nginx vindaloo config.
   shell: "rm -f /etc/nginx/conf.d/vindaloo.conf"
@@ -26,7 +27,7 @@
 - name: Configure Vindalu
   template: src=vindalu.json.j2 dest=/opt/vindalu/etc/vindalu.json
   notify: Restart vindalu
-  
+
 - name: Configure Vindalu local admins
   template: src=local-groups.json.j2 dest=/opt/vindalu/etc/local-groups.json
   notify: Restart vindalu
