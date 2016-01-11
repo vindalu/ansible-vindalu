@@ -1,26 +1,33 @@
 ---
 #- name: Clean repo cache
 #  shell: yum clean all
-  
+
+- name: Update Vindalu repo yum cache
+  shell: yum -q makecache -y --disablerepo='*' --enablerepo='vindalu'
+
 - name: Install Vindalu UI
   yum: pkg=vindalu-ui state=latest
-  
+
 - name: Install Vindalu
-  yum: pkg=vindaloo state=latest
+  yum: pkg=vindalu state=latest
   notify: Restart vindalu
 
-- name: Disable default nginx config
+- name: Remove nginx vindaloo config.
+  shell: "rm -f /etc/nginx/conf.d/vindaloo.conf"
+  notify: restart nginx
+
+- name: Disable default nginx config (if present)
   shell: "if [ -f /etc/nginx/conf.d/default.conf ]; then mv /etc/nginx/conf.d/default.conf{,.disabled}; fi"
   notify: restart nginx
 
 - name: Install startup script
-  file: src=/opt/vindaloo/bin/vindaloo-ctl dest=/etc/init.d/vindaloo state=link
+  file: src=/opt/vindalu/bin/vindalu-ctl dest=/etc/init.d/vindalu state=link
   notify: Start vindalu
 
 - name: Configure Vindalu
-  template: src=vindaloo.json.j2 dest=/opt/vindaloo/etc/vindaloo.json
+  template: src=vindalu.json.j2 dest=/opt/vindalu/etc/vindalu.json
   notify: Restart vindalu
-  
+
 - name: Configure Vindalu local admins
-  template: src=local-groups.json.j2 dest=/opt/vindaloo/etc/local-groups.json
+  template: src=local-groups.json.j2 dest=/opt/vindalu/etc/local-groups.json
   notify: Restart vindalu

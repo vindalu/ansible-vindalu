@@ -5,7 +5,7 @@
             "host": "{{vd_ess_host}}",
             "port": {{vd_ess_port}},
             "index": "{{vd_ess_index}}",
-            "mapping_file": "/opt/vindaloo/etc/mapping.json"
+            "mappings_dir": "/opt/vindalu/etc/mappings"
         }
     },
     "asset": {
@@ -18,7 +18,7 @@
     "webroot": "/opt/vindalu-ui/ui",
     "events": {
         "enabled": true,
-        "config_file": "/opt/vindaloo/etc/gnatsd.conf"
+        "config_file": "/opt/vindalu/etc/gnatsd.conf"
     },
     "endpoints":{
         "api_prefix": "{{vd_api_prefix}}",
@@ -35,7 +35,7 @@
             "cache_ttl": {{vd_auth_cache_ttl}}{% else %}"htpasswd_file": "{{vd_auth_basic_htpasswd_file}}"
             {% endif %}
         },
-        "groups_file": "/opt/vindaloo/etc/local-groups.json",
+        "groups_file": "/opt/vindalu/etc/local-groups.json",
         "token": {
             "signing_key": "{{vd_token_signing_key}}",
             "ttl": {{vd_token_ttl}}

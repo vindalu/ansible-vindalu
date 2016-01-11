@@ -6,6 +6,12 @@ es_etc_discovery_zen_ping_unicast_hosts: "{{cluster_members}}"
 es_etc_cluster_name: "{{cluster_name}}"
 es_etc_node_name: "{{ansible_fqdn}}"
 
+es_etc:
+  action.destructive_requires_name: "true"
+  action.disable_delete_all_indices: "true"
+  # prevent ipv6 binding
+  network.bind_host: "0.0.0.0"
+
 ## vindaloo configs
 vd_ess_host: "localhost"
 vd_ess_port: 9200
@@ -17,12 +23,12 @@ local_admins: ["admin"]
 
 ## vindalu auth
 vd_auth_type: "basic"
-vd_auth_basic_htpasswd_file: "/opt/vindaloo/etc/htpasswd"
+vd_auth_basic_htpasswd_file: "/opt/vindalu/etc/htpasswd"
 
 vd_ldap_url: ""
 vd_search_base: ""
 vd_bind_dn: ""
-vd_bind_password: file:///opt/vindaloo/etc/bind.passwd
+vd_bind_password: file:///opt/vindalu/etc/bind.passwd
 vd_auth_cache_ttl: 7200
 
 vd_token_signing_key: "should-be-changed"
@@ -32,4 +38,4 @@ vd_token_ttl: 7200
 asset_required_fields: "[\"status\"]"
 
 # This should not be over written
-vd_version: "0.4.5"
+vd_version: "0.5.1"

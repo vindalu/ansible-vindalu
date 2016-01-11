@@ -1,5 +1,5 @@
 - name: Start vindalu
-  service: name=vindaloo state=started enabled=yes
+  shell: /etc/init.d/vindalu start
 
 - name: Restart vindalu
-  service: name=vindaloo state=restarted
+  shell: /etc/init.d/vindalu restart
