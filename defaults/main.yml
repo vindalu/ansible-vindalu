@@ -12,7 +12,7 @@ es_etc:
   # prevent ipv6 binding
   network.bind_host: "0.0.0.0"
 
-## vindaloo configs
+## vindalu configs
 vd_ess_host: "localhost"
 vd_ess_port: 9200
 vd_ess_index: inventory
